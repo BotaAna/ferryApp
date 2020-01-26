@@ -18,9 +18,9 @@ public class VehicleMenu {
         String vehicle = scanner.nextLine();
         Ticket ticket = parseVehicle(vehicle.toUpperCase(), owner);
         ticket.ownerData();
-        System.out.println("Za bilet zapłacisz: " + ticket.getPrice() + " zł.");
         Basket.INSTANCE.addBalance(ticket.getPrice());
         Basket.INSTANCE.addNewTicket(ticket);
+        System.out.println("Za bilet zapłacisz: " + ticket.getPrice() + " zł. Na promie zostało : " + Basket.INSTANCE.getLeftQuantity() );
         new RepeatBuying().repeatBuying();
     }
 

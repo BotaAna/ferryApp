@@ -7,11 +7,12 @@ import java.math.BigDecimal;
 public class StandardTicket extends CargoTicket {
 
     private float size;
-    private float unitQuantity = (float) Math.ceil(5 * size);
+    private float unitQuantity;
 
     public StandardTicket(float size, String owner) {
         super(CargoType.STANDARD, owner);
         this.size = size;
+        this.unitQuantity = (float) Math.ceil(5 * size);
     }
 
     @Override

@@ -1,6 +1,5 @@
-package pl.exercise.ferry.prom;
+package pl.exercise.ferry.ferryboat;
 
-import pl.exercise.ferry.Basket;
 import pl.exercise.ferry.ticket.Ticket;
 
 import java.util.ArrayList;
@@ -8,14 +7,14 @@ import java.util.List;
 
 public class Prom {
 
-    private final float quantity = 1000;
     private float leftQuantity = 1000;
 
     List<Ticket> listOfTickets = new ArrayList<>();
 //    List<Ticket> listOfTickets = Basket.INSTANCE.listOfTickets();
+    PromNames promname;
 
     public Prom(PromNames promName) {
-
+        this.promname=promName;
     }
 
     public List<Ticket> getListOfTickets() {
@@ -23,11 +22,10 @@ public class Prom {
     }
 
 
-    public float getLeftQuantity() {
+    public float substructFromLeftQuantity(float quantity) {
 
-        for(Ticket ticket : listOfTickets) {
-            leftQuantity = leftQuantity - ticket.getUnitQuantity();
-        }
+            leftQuantity = leftQuantity - quantity;
+
         return leftQuantity;
     }
 
@@ -36,4 +34,11 @@ public class Prom {
         return true;
     }
 
+    public PromNames getPromName() {
+        return promname;
+    }
+
+    public float getLeftQuantity() {
+        return leftQuantity;
+    }
 }

@@ -11,15 +11,17 @@ public class PersonMenu {
     Scanner scanner = new Scanner(System.in);
 
     public void personMenu() throws IOException {
+
         System.out.println("Kupujesz bilet osobowy. Imię i nazwisko: ");
         String owner = scanner.nextLine().toLowerCase();
         System.out.println("Podaj wiek podróżującego:");
         int age = scanner.nextInt();
         Ticket ticket = parsePerson(age, owner);
         ticket.ownerData();
-        System.out.println("Za bilet zapłacisz: " + ticket.getPrice() + " zł.");
         Basket.INSTANCE.addBalance(ticket.getPrice());
         Basket.INSTANCE.addNewTicket(ticket);
+        System.out.println("Za bilet zapłacisz: " + ticket.getPrice() + " zł. Na promie zostało : "
+                + Basket.INSTANCE.getLeftQuantity() );
         new RepeatBuying().repeatBuying();
     }
 

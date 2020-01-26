@@ -6,9 +6,6 @@ import pl.exercise.ferry.ticket.Ticket;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,22 +29,4 @@ public class Writer { //serializer
         namesOfFiles.add(nameOfFile);
     }
 }
-
-
-
-
-
-
-
-    /*public Writer() throws IOException {
-    }
-
-    public void writeToFile(List<String> lines) {
-        FileWriter writer = new FileWriter("output.txt");
-        for (String str : lines) {
-            writer.write(str + System.lineSeparator());
-        }
-    }
-    writer.close();
-*/
 

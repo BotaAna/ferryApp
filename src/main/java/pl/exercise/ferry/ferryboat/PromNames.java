@@ -1,4 +1,4 @@
-package pl.exercise.ferry.prom;
+package pl.exercise.ferry.ferryboat;
 
 public enum PromNames {
     JAGIENKA, MIESZKO, ZBYSZKO;

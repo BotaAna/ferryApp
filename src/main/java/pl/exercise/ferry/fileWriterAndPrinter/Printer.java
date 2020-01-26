@@ -34,16 +34,14 @@ public class Printer { //deserializer
         displayNamesOfFiles();
         String fileName = scanner.next();
         Scanner scanner = new Scanner(new File("D:/Java-programowanie 2/projekty/Baza/" + fileName));
-        String s = "";
+        String line = "";
 
         while (scanner.hasNextLine()){
-            s+=scanner.nextLine();
+            line+=scanner.nextLine();
         }
-
         scanner.close();
 
-        String[] dataOfOneTicket = s.split(";");
-
+        String[] dataOfOneTicket = line.split(";");
         for (int i = 0; i < dataOfOneTicket.length; i++) {
             String[] simpleData = dataOfOneTicket[i].split(",");
             String ownerData = simpleData[0];
@@ -61,6 +59,7 @@ public class Printer { //deserializer
             listOfTickets.add(ticket);
         }
         System.out.println("Dodano bilety do koszyka. Co chcesz dalej zrobić?");
+        System.out.println();
         MainScreen mainScreen = new MainScreen();
         mainScreen.interact();
     }
@@ -101,6 +100,4 @@ public class Printer { //deserializer
             }
         }
     }
-
-
 }

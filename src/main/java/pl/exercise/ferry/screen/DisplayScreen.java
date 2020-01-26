@@ -1,6 +1,8 @@
 package pl.exercise.ferry.screen;
 
 import pl.exercise.ferry.Basket;
+import pl.exercise.ferry.discount.FormatterContext;
+import pl.exercise.ferry.discount.LogicOfDiscounts;
 import pl.exercise.ferry.ticket.Ticket;
 
 import java.io.IOException;
@@ -25,6 +27,18 @@ public class DisplayScreen {
         System.out.println("Łączna kwota transakcji to: " + Basket.INSTANCE.getBalance() + " zł.");
     }
 
+    public void displayFinalData() throws IOException {
+        for (Ticket ticket : tickets) {
+            System.out.println("Kupiłeś bilet dla: " + ticket.ownerData()
+                    + " , typu: " + ticket.getType()
+                    + ", podtypu: " + ticket.getSubType()
+                    + ", kwota: " + ticket.getPrice() + " zł. ");
+        }
+        System.out.println("Łączna kwota transakcji to: " + Basket.INSTANCE.getBalance() + " zł.");
+        LogicOfDiscounts logicOfDiscounts = new LogicOfDiscounts();
+        System.out.println("Łączna kwota transakcji po uwzględnieniu rabatu to: " + logicOfDiscounts.getBalance() + " zł.");
+    }
+
     public void displayForSpecificUser() throws IOException {
         System.out.println("Podaj imię i nazwisko użytkownika:");
         String name = scanner.nextLine().toLowerCase();
@@ -41,4 +55,6 @@ public class DisplayScreen {
         }
         System.out.println("Łączna kwota rejsów dla użytkownika to: " + totalForUser + " zł.");
     }
+
+
 }
